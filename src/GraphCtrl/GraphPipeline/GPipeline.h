@@ -112,6 +112,10 @@ public:
             c_enable_if_t<std::is_base_of<GNode, T>::value, int> = 0>
     GNodePtr createGNode(const GNodeInfo &info);
 
+    template<typename T,typename... ARGS,
+            c_enable_if_t<std::is_base_of<GNode, T>::value, int> = 0>
+    GNodePtr createGNode(const GNodeInfo &info, ARGS... args);
+    
     /**
      * 根据传入的信息，创建Group信息
      * @tparam T
