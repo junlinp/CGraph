@@ -122,7 +122,7 @@ GNodePtr GPipeline::createGNode(const GNodeInfo &info) {
 }
 
 template<typename T, typename... ARGS, c_enable_if_t<std::is_base_of<GNode, T>::value, int>>
-GNodePtr GPipeline::createGNode(GNodeInfo &info, ARGS... args) {
+GNodePtr GPipeline::createGNode(const GNodeInfo &info, ARGS... args) {
     CGRAPH_FUNCTION_BEGIN
     CGRAPH_ASSERT_INIT_THROW_ERROR(false)
     GNodePtr node = UAllocator::safeMallocTemplateCObject<T, ARGS...>(std::forward<ARGS>(args)...);
